@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
+body {
+  background: linear-gradient(
+    to left,
+    rgb(248, 173, 138),
+    rgb(251, 225, 213)
+  );
+}

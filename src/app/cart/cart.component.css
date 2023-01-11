@@ -1,0 +1,47 @@
+* {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+
+#shopping-cart {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+tr {
+  border: 1px black !important;
+}
+
+.btn {
+  margin: 0 3px 0 3px;
+}
+
+.btn-bd-primary {
+  box-shadow: 3px 3px rgba(109, 55, 28, 0.734);
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: rgb(162, 93, 61);
+  --bs-btn-border-radius: .5rem;
+  --bs-btn-hover-color: black;
+  --bs-btn-hover-bg: #{shade-color($bd-violet, 10%)};
+  --bs-btn-hover-border-color: rgb(155, 58, 13);
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: rgb(129, 61, 30);
+  --bs-btn-active-bg: rgb(163, 83, 46);
+  --bs-btn-active-border-color: rgb(129, 61, 30);
+}
+
+.modal-header {
+  background-color: rgb(235, 135, 89);
+  border: none;
+}
+
+.modal-body {
+  background-color: rgb(243, 162, 125);
+  border: none;
+}
+
+.modal-footer {
+  background-color: rgb(235, 135, 89);
+  border: none;
+}

@@ -1,0 +1,31 @@
+.navbar {
+  background-color: rgb(235, 135, 89);
+}
+
+.nav-link {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: 1.5px;
+}
+
+::ng-deep .custom-select {
+  background-color: rgb(248, 173, 138);
+  border: none;
+}
+
+::ng-deep .custom-select:checked {
+  background-color: red !important;
+}
+
+#title {
+  font-family: 'East Sea Dokdo', cursive;
+  font-size: 50px;
+  font-weight: bold;
+  color: #b65636;
+  text-shadow: 1.5px 1.5px rgb(72, 72, 72);
+}
+
+#cart-badge {
+  background-color: #b65636;
+}

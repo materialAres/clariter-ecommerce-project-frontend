@@ -1,0 +1,13 @@
+Customer avrà tutti i metodi per lavorarci: aggiungi, modifica eccetera
+
+In cart service:
+- array
+- getCart
+- metodi di interazione: aggiungi, rimuovi, aumenta quantità
+- il getCart viene richiamato da cart component per stampare, l'add viene richiamato da productlist per aggiungere prodotti eccetera
+
+Crea product service
+
+TODO:
+- far sparire button addToCart se customer non selezionato
+- aggiornare orders quando fai nuovo order

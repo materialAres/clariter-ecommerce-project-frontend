@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+body {
+  background-color: #d6d2d2;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(235, 135, 89);
+  box-shadow: 5px 5px 10px rgb(70, 35, 18);
+}
+
+img {
+  width: 200%;
+  height: 25vw;
+  object-fit: cover;
+}
+
+.mb-0, .text, .btn {
+  font-family: 'Raleway', sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.text {
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.btn-bd-primary {
+  box-shadow: 3px 3px rgba(109, 55, 28, 0.734);
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: rgb(162, 93, 61);
+  --bs-btn-border-radius: .5rem;
+  --bs-btn-hover-color: black;
+  --bs-btn-hover-bg: #{shade-color($bd-violet, 10%)};
+  --bs-btn-hover-border-color: rgb(155, 58, 13);
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: rgb(129, 61, 30);
+  --bs-btn-active-bg: rgb(163, 83, 46);
+  --bs-btn-active-border-color: rgb(129, 61, 30);
+}
+
+
+.img-container {
+  position: relative
+}
+
+.img-container .first {
+  position: absolute;
+  width: 100%
+}
+
+.img-container img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px
+}
+
+.product-detail-container {
+  padding: 10px
+}
+
+label.radio {
+  cursor: pointer
+}
+
+label.radio input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none
+}
+
+label.radio span {
+  height: 25px;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #dc3545;
+  color: #dc3545;
+  font-size: 10px;
+  border-radius: 50%;
+  text-transform: uppercase
+}
+
+label.radio input:checked+span {
+  border-color: #dc3545;
+  background-color: #dc3545;
+  color: #fff
+}

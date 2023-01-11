@@ -1,0 +1,120 @@
+<section class="h-100 h-custom">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr class="cart-table">
+                <th id="shopping-cart" scope="col" class="h5">Shopping Cart</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="cart-table" *ngFor="let product of cartService.getCart()" >
+                <th id="cart-body" scope="row">
+                  <div class="d-flex align-items-center">
+                    <img src="{{ product.imageUrl != null ? product.imageUrl : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.istockphoto.com%2Fvectors%2Ferror-document-icon-vector-id1060550172%3Fk%3D6%26m%3D1060550172%26s%3D612x612%26w%3D0%26h%3DgdWxz8H1C8PaxEKF_ItZfo_S-cbQsxC415_n5v9irvs%3D&f=1&nofb=1&ipt=352d94b9e6eee7043dd5ef865ea16b8855a3ae0c7a54eddcda62b53c4015efa4&ipo=images' }}" class="img-fluid rounded-3"
+                      style="width: 120px;" alt="product image">
+                    <div class="flex-column ms-4">
+                      <p class="mb-2">{{ product.name | titlecase }}</p>
+                    </div>
+                  </div>
+                </th>
+                <td class="align-middle">
+                  <div class="d-flex flex-row">
+                    <button type="button" class="btn btn-outline-dark" (click)="cartService.subtractQuantity(product.id)"><i class="bi bi-cart-dash"></i></button>
+                      <div class="btn">{{ product.qty }}</div>
+                    <button type="button" class="btn btn-outline-dark" (click)="cartService.addQuantity(product.id)"><i class="bi bi-cart-plus"></i></button>
+                  </div>
+                </td>
+                <td class="align-middle">
+                  <p class="mb-0" style="font-weight: 500;">{{ product.price | currency: "EUR" }}</p>
+                </td>
+                <td class="align-middle">
+                  <div><button data-bs-toggle="modal" data-bs-target="#remove-product" type="button" class="btn btn-bd-primary" (click)="saveId(product.id)">Remove</button></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+            <button type="button" class="btn btn-outline-dark" (click)="openAlert()" [disabled]="cartService.getCart().length == 0">Place order</button>
+            <button data-bs-toggle="modal" data-bs-target="#reset-cart" type="button" class="btn btn-outline-dark" [disabled]="cartService.getCart().length == 0">Reset cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Modal -->
+<div class="modal fade" id="reset-cart">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h6 class="modal-title">Do you really want to empty the cart?</h6>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="cartService.resetCart()">
+          Yes
+        </button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          No
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal to remove a product from the cart. -->
+<div class="modal fade" id="remove-product">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h6 class="modal-title">Do you really want to remove it from the cart?</h6>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="cartService.removeProduct(id)">
+          Yes
+        </button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          No
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for placed order-->
+<ng-template #modalContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Success!</h4>
+    <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <p>The order is on the way.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close('Ok click')">Ok</button>
+  </div>
+</ng-template>

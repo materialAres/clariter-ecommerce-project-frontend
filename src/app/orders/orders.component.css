@@ -1,0 +1,14 @@
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(235, 135, 89);
+  box-shadow: 5px 5px 10px rgb(70, 35, 18);
+}
+
+.card-body {
+  background-color: rgba(243, 184, 157, 0.711);
+}

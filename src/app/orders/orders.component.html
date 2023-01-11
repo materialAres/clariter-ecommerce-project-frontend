@@ -1,0 +1,51 @@
+<section class="vh-100 gradient-custom-2" >
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-10 col-lg-8 col-xl-6">
+        <div class="card card-stepper mb-4" style="border-radius: 16px;" *ngFor="let order of ordersService.orders">
+          <div class="card-header p-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <p class="text mb-2"> Order ID <span class="fw-bold text-body">{{ order.id }}</span></p>
+                <p class="text mb-0"> Placed On <span class="fw-bold text-body">{{ order.createdAt | date:'longDate' }}</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="card-body p-4" *ngFor="let product of order.products">
+            <div class="d-flex flex-row mb-4 pb-2">
+              <div class="flex-fill">
+                <h5 class="bold">{{ product.name | titlecase }}</h5>
+                <p class="text-muted">Quantity: {{ product.qty }}</p>
+                <h4 class="mb-3">{{ product.price | currency: "EUR"}}</h4>
+              </div>
+              <div>
+                <img class="align-self-center img-fluid" style="width: 80px; border-radius: 100%;"
+                  src="{{ product.imageUrl != null ? product.imageUrl : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.istockphoto.com%2Fvectors%2Ferror-document-icon-vector-id1060550172%3Fk%3D6%26m%3D1060550172%26s%3D612x612%26w%3D0%26h%3DgdWxz8H1C8PaxEKF_ItZfo_S-cbQsxC415_n5v9irvs%3D&f=1&nofb=1&ipt=352d94b9e6eee7043dd5ef865ea16b8855a3ae0c7a54eddcda62b53c4015efa4&ipo=images' }}" width="250">
+              </div>
+            </div>
+          </div>
+          <div class="card-footer p-4">
+            <h3 class="bold">Total: <span id="amount">{{ order.amount | currency: "EUR" }}</span></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="card col-md-4 mx-auto" style="width: 18rem;" *ngFor="let order of ordersService.orders">
+      <div class="card-body">
+        <h5 class="card-title">Order ID: {{order.id}}</h5>
+        <ul *ngFor="let product of order.products">
+          <li>{{ product.name }} {{ product.price | currency: "EUR"}}</li>
+        </ul>
+        <hr>
+        <p>Total: {{ order.amount | currency: "EUR"}}</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
