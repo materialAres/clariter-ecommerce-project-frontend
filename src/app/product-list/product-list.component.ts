@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from 'src/services/cart.service';
-import { ProductListService } from 'src/services/product-list.service';
+import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
+import { ProductListService } from 'src/app/services/product-list.service';
+import { AddedToCartToastService } from '../services/added-to-cart-toast.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,7 +13,8 @@ export class ProductListComponent implements OnInit {
   // la variabile http sarà disponibile in tutta la classe
   constructor(
     public productListService: ProductListService,
-    public cartService: CartService
+    public cartService: CartService,
+    public addedToCartToastService: AddedToCartToastService
   ) {}
 
   products: {
@@ -21,15 +24,6 @@ export class ProductListComponent implements OnInit {
     qty: number,
     imageUrl: string
    }[] = [];
-
-  show = false;
-
-  showToast() {
-    this.show = true;
-    setTimeout(() => {
-      this.show = false;
-    }, 1000);
-  }
 
   ngOnInit(): void {
     this.products = this.productListService.getProducts();

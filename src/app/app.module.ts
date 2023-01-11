@@ -13,6 +13,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddedToCartToastComponent } from './added-to-cart-toast/added-to-cart-toast.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AddedToCartToastComponent } from './added-to-cart-toast/added-to-cart-t
     CartComponent,
     OrdersComponent,
     PageNotFoundComponent,
-    AddedToCartToastComponent
+    AddedToCartToastComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

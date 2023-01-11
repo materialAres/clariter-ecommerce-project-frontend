@@ -1,6 +1,6 @@
 import { Component,  OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { CartService } from 'src/services/cart.service';
-import { OrdersService } from 'src/services/orders.service';
+import { CartService } from 'src/app/services/cart.service';
+import { OrdersService } from 'src/app/services/orders.service';
 
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output, SimpleChanges, OnInit } from '@angular/core';
+import { ProductListService } from './services/product-list.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,10 @@ import { Component, EventEmitter, Output, SimpleChanges, OnInit } from '@angular
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+  constructor(private productListService: ProductListService) {
+    productListService.loadProducts();
+  }
   ngOnInit(): void {
 
   }

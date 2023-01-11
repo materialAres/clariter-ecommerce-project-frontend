@@ -36,8 +36,6 @@ export class CustomerService {
       Object.entries(response).forEach(([key, value]) => {
         this.customers.push(value);
       })
-
-      console.log("Updated");
     })
   }
 

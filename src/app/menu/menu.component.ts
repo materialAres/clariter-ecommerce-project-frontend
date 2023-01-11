@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { CartService } from 'src/services/cart.service';
-import { CustomerService } from 'src/services/customer.service';
-import { MenuService } from 'src/services/menu.service';
-import { OrdersService } from 'src/services/orders.service';
-import { ProductListService } from 'src/services/product-list.service';
+import { CartService } from 'src/app/services/cart.service';
+import { CustomerService } from 'src/app/services/customer.service';
+import { MenuService } from 'src/app/services/menu.service';
+import { OrdersService } from 'src/app/services/orders.service';
+import { ProductListService } from 'src/app/services/product-list.service';
 
 @Component({
   selector: 'app-menu',
@@ -20,7 +20,6 @@ export class MenuComponent {
     public productListService: ProductListService
     ) {
     this.customers = this.customerService.getCustomers();
-    console.log(this.customers);
   }
 
   title: string = 'Rickrolling Shop';

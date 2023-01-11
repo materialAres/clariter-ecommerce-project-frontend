@@ -4,10 +4,12 @@ import { CartComponent } from './cart/cart.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductComponent } from './product/product.component';
 
 // il routing è un modulo di instradamento
 const routes: Routes = [
   {path: 'products', component: ProductListComponent},
+  {path: 'products/:id', component: ProductComponent},
   {path: 'cart', component: CartComponent},
   {path: 'orders', component: OrdersComponent},
   {path: '', redirectTo: '/products', pathMatch: 'full'},

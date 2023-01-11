@@ -28,8 +28,6 @@ export class ProductListService implements OnInit {
   }
 
   disableButton(id: number) {
-    console.log("ID " + id);
-
     if (id == 0) {
       this.btnIsDisabled = true;
     } else {
@@ -37,7 +35,7 @@ export class ProductListService implements OnInit {
     }
    }
 
-  loadProducts(): void {
+  async loadProducts() {
     this.products = [];
 
     /* Suscribe si collega alla chiamata e rimane in attesa, dove poi arriverà la risposta.
@@ -54,6 +52,28 @@ export class ProductListService implements OnInit {
 
   getProducts() {
     return this.products;
+  }
+
+  getProductById(id: number): {
+    id: number,
+    name: string,
+    price: number,
+    qty: number,
+    imageUrl: string
+  } {
+    console.log("ID INSIDE GET " + id);
+    console.log(this.products);
+
+    for (let i = 0; i < this.products.length; i++) {
+      console.log("FOR");
+
+      if (this.products[i].id == id) {
+        console.log("THE PRODUCT INSIDE GET", this.products[i]);
+        return this.products[i];
+      }
+    }
+
+    throw new Error('This product does not exist.');
   }
 
   getProductQtyByName(name: string) {

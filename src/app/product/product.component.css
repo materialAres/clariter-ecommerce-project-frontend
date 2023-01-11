@@ -1,0 +1,35 @@
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
+img {
+  width: 200px;
+}
+
+.main-section {
+  background: linear-gradient(
+    to left,
+    rgb(249, 198, 174),
+    rgb(251, 225, 213)
+  );
+  border: none !important;
+}
+
+.border {
+  border: none !important;
+}
+
+.btn-bd-primary {
+  box-shadow: 3px 3px rgba(109, 55, 28, 0.734);
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: rgb(162, 93, 61);
+  --bs-btn-border-radius: .5rem;
+  --bs-btn-hover-color: black;
+  --bs-btn-hover-bg: #{shade-color($bd-violet, 10%)};
+  --bs-btn-hover-border-color: rgb(155, 58, 13);
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: rgb(129, 61, 30);
+  --bs-btn-active-bg: rgb(163, 83, 46);
+  --bs-btn-active-border-color: rgb(129, 61, 30);
+}
