@@ -61,11 +61,7 @@ export class ProductListService implements OnInit {
     qty: number,
     imageUrl: string
   } {
-    console.log("ID INSIDE GET " + id);
-    console.log(this.products);
-
     for (let i = 0; i < this.products.length; i++) {
-      console.log("FOR");
 
       if (this.products[i].id == id) {
         console.log("THE PRODUCT INSIDE GET", this.products[i]);
@@ -83,6 +79,6 @@ export class ProductListService implements OnInit {
       }
     }
 
-    return 'No such product';
+    throw new Error('This product does not exist.');
   }
 }

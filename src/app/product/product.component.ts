@@ -35,7 +35,6 @@ export class ProductComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
 
   ngOnInit(): void {
-    this.productListService.loadProducts();
 
     setTimeout(() => {
       this.subscription = this.route.paramMap.subscribe((params: ParamMap) => {
@@ -43,7 +42,6 @@ export class ProductComponent implements OnInit, OnDestroy {
         console.log("ID ", id);
 
         this.product = this.productListService.getProductById(id);
-        console.log(this.product);
       })
     }, 500);
   }
