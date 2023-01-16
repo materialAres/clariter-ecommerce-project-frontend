@@ -10,13 +10,15 @@ export class CustomerService {
     this.loadCustomers();
   }
 
-  customers: {
+  private customerId = 0;
+
+  private customers: {
     id: number,
     name: string,
     surname: string
   }[] = [];
 
-  customer: {
+  private customer: {
     id: number,
     name: string,
     surname: string
@@ -25,8 +27,6 @@ export class CustomerService {
     name: '',
     surname: ''
   };
-
-  public customerId: number = 0;
 
   loadCustomers(): void {
     this.customers = [];
@@ -47,11 +47,19 @@ export class CustomerService {
     this.customerId = id;
   }
 
+  getCustomer() {
+    return this.customer;
+  }
+
   setCustomer(customer: {
     id: number,
     name: string,
     surname: string
   }) {
     this.customer = customer
+  }
+
+  getCustomerId() {
+    return this.customerId;
   }
 }

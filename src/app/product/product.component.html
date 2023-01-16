@@ -5,7 +5,7 @@
       </div>
       <div class="row m-0">
           <div class="col-lg-4 left-side-product-box pb-3">
-              <img src="{{ product.imageUrl }}" class="border">
+              <img src="{{ product.imageUrl != null ? product.imageUrl : 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.istockphoto.com%2Fvectors%2Ferror-document-icon-vector-id1060550172%3Fk%3D6%26m%3D1060550172%26s%3D612x612%26w%3D0%26h%3DgdWxz8H1C8PaxEKF_ItZfo_S-cbQsxC415_n5v9irvs%3D&f=1&nofb=1&ipt=352d94b9e6eee7043dd5ef865ea16b8855a3ae0c7a54eddcda62b53c4015efa4&ipo=images' }}" class="border">
           </div>
           <div class="col-lg-8">
               <div class="right-side-pro-detail border p-3 m-0">
@@ -35,4 +35,4 @@
   </div>
 </div>
 
-<app-added-to-cart-toast *ngIf="addedToCartToastService.show"></app-added-to-cart-toast>
+<app-added-to-cart-toast *ngIf="addedToCartToastService.hasShow()"></app-added-to-cart-toast>

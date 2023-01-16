@@ -18,7 +18,9 @@ export class ProductComponent implements OnInit, OnDestroy {
     public cartService: CartService,
     public addedToCartToastService: AddedToCartToastService) {}
 
-  product: {
+  private subscription!: Subscription;
+
+  protected product: {
     id: number,
     name: string,
     price: number,
@@ -32,10 +34,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     imageUrl: ''
   };
 
-  subscription!: Subscription;
-
   ngOnInit(): void {
-
     setTimeout(() => {
       this.subscription = this.route.paramMap.subscribe((params: ParamMap) => {
         const id = +params.get('id')!;

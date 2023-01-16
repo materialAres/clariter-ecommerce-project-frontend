@@ -1,27 +1,19 @@
 import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { min } from 'rxjs';
-import { ProductListComponent } from 'src/app/product-list/product-list.component';
+import { Injectable } from '@angular/core';
 import { CartService } from './cart.service';
 import { CustomerService } from './customer.service';
-import { MenuService } from './menu.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class OrdersService implements OnInit {
+export class OrdersService {
   constructor(
     public httpClient: HttpClient,
     public cartService: CartService,
-    public customerService: CustomerService,
-    public menuService: MenuService
+    public customerService: CustomerService
     ) {}
 
-  ngOnInit(): void {
-    this.loadOrdersByClientId(this.customerService.customerId);
-  }
-
-  public orders: {
+  private orders: {
     id: number,
     products: any,
     amount: number,
@@ -45,7 +37,7 @@ export class OrdersService implements OnInit {
   }
 
   getOrders() {
-    return this.orders.sort();
+    return this.orders;
   }
 
   setOrders(orders: any) {
@@ -55,11 +47,11 @@ export class OrdersService implements OnInit {
   createOrder() {
     this.httpClient.post('http://localhost:8080/order/add', {
       id: 0,
-      customer: this.customerService.customer,
+      customer: this.customerService.getCustomer(),
       amount: 0,
       products: this.cartService.getCart()
     }).subscribe(res => {
-      this.loadOrdersByClientId(this.customerService.customer.id);
+      this.loadOrdersByClientId(this.customerService.getCustomer().id);
       this.cartService.resetCart();
     })
   }

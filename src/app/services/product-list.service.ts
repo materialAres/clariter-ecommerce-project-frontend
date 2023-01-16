@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable, OnInit } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class ProductListService implements OnInit {
     }, 30000);
   }
 
-  btnIsDisabled: boolean = true;
+  private btnIsDisabled = true;
 
   private products: {
     id: number,
@@ -34,15 +34,10 @@ export class ProductListService implements OnInit {
     }
    }
 
-  async loadProducts() {
+  loadProducts() {
     this.products = [];
 
-    /* Suscribe si collega alla chiamata e rimane in attesa, dove poi arriverà la risposta.
-    la response rappresenta il risultato in json
-    la chiamata get restituisce un oggetto observable. L'oggetto observable ha tra i suoi metodi
-    il subscribe */
     this.httpClient.get('http://localhost:8080/product/all').subscribe((response) => {
-
       Object.entries(response).forEach(([key, value]) => {
         this.products.push(value);
       })
@@ -62,9 +57,7 @@ export class ProductListService implements OnInit {
     imageUrl: string
   } {
     for (let i = 0; i < this.products.length; i++) {
-
       if (this.products[i].id == id) {
-        console.log("THE PRODUCT INSIDE GET", this.products[i]);
         return this.products[i];
       }
     }
@@ -80,5 +73,9 @@ export class ProductListService implements OnInit {
     }
 
     throw new Error('This product does not exist.');
+  }
+
+  getBtnIsDisabled() {
+    return this.btnIsDisabled;
   }
 }

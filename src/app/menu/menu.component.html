@@ -15,7 +15,7 @@
     <div class="d-flex">
       <select (change)="onCustomerChange($event)" class="custom-select form-select" aria-label="Customer select">
         <option value="0">Select customer</option>
-        <option class="selected" *ngFor="let customer of customers" value="{{ customer.id }}" >{{ customer.name }} {{ customer.surname }}</option>
+        <option class="selected" *ngFor="let customer of getCustomers()" value="{{ customer.id }}" >{{ customer.name }} {{ customer.surname }}</option>
       </select>
     </div>
   </div>

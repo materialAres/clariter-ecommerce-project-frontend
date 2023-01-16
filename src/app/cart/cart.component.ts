@@ -1,4 +1,4 @@
-import { Component,  OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { OrdersService } from 'src/app/services/orders.service';
 
@@ -10,7 +10,7 @@ import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./cart.component.css']
 })
 
-export class CartComponent implements OnInit {
+export class CartComponent {
 
   @ViewChild('modalContent', { static: true }) modalContent!: TemplateRef<any>;
 
@@ -20,13 +20,11 @@ export class CartComponent implements OnInit {
     private modalService: NgbModal
     ) {}
 
-  id: number = 0;
+  protected id = 0;
 
   saveId(id: number) {
     this.id = id;
   }
-
-  ngOnInit(): void {}
 
   openAlert() {
     const options: NgbModalOptions = {

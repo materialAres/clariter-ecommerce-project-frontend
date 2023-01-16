@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { CustomerService } from './customer.service';
-import { OrdersService } from './orders.service';
 import { ProductListService } from './product-list.service';
 
 @Injectable({
@@ -84,16 +82,13 @@ export class CartService {
         if (this.cart[index].qty > 1) {
           this.cart[index].qty -= 1;
         } else {
-          // aggiungere alert
           this.removeProduct(id);
         }
       }
     }
   }
 
-  // reset cart con event emitter, in modo che si aggiorni quando l'id cambia
   resetCart() {
-    // if id cambia
     this.cart = [];
   }
 }

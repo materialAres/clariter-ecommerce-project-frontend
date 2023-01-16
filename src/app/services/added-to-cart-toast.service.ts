@@ -5,14 +5,18 @@ import { Injectable } from '@angular/core';
 })
 export class AddedToCartToastService {
 
-  constructor() { }
+  constructor() {}
 
-  show = false;
+  private show = false;
 
   showToast() {
     this.show = true;
     setTimeout(() => {
       this.show = false;
     }, 1000);
+  }
+
+  hasShow() {
+    return this.show;
   }
 }

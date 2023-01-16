@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { CustomerService } from 'src/app/services/customer.service';
-import { MenuService } from 'src/app/services/menu.service';
 import { OrdersService } from 'src/app/services/orders.service';
 import { ProductListService } from 'src/app/services/product-list.service';
 
@@ -14,7 +13,6 @@ export class MenuComponent {
 
   constructor(
     public customerService: CustomerService,
-    public menuService: MenuService,
     public ordersService: OrdersService,
     public cartService: CartService,
     public productListService: ProductListService
@@ -22,40 +20,33 @@ export class MenuComponent {
     this.customers = this.customerService.getCustomers();
   }
 
-  title: string = 'Rickrolling Shop';
+  readonly title = 'Rickrolling Shop';
 
-  customers: {
+  private customers: {
     id: number,
     name: string,
     surname: string
   }[] = [];
 
-  customer: {
-    id: number,
+  readonly links: {
     name: string,
-    surname: string
-  } = {
-    id: 0,
-    name: '',
-    surname: ''
-  };
-
-  links = [
+    href: string,
+    disabled: boolean
+  }[] = [
     {name: 'Products', href: '/products', disabled: false},
     {name: 'Orders', href: '/orders', disabled: false},
     {name: 'Cart', href: '/cart', disabled: true},
   ];
 
-  hoveredOption: number | null = null;
-
+  /** When we change the customer from the dropdown menu its id is taken to */
   onCustomerChange(event: Event) {
     this.customerService.setCustomerId(Number((<HTMLInputElement> event.target).value));
-    this.ordersService.loadOrdersByClientId(this.customerService.customerId);
+
+    this.ordersService.loadOrdersByClientId(this.customerService.getCustomerId());
     this.cartService.resetCart();
+    this.productListService.disableButton(this.customerService.getCustomerId());
 
-    this.productListService.disableButton(Number((<HTMLInputElement> event.target).value));
-
-    this.storeCustomer(Number((<HTMLInputElement> event.target).value));
+    this.storeCustomer(this.customerService.getCustomerId());
   }
 
   storeCustomer(id: number) {
@@ -79,5 +70,9 @@ export class MenuComponent {
     } else {
       return false;
     }
+  }
+
+  getCustomers() {
+    return this.customers;
   }
 }

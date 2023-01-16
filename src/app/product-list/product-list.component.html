@@ -10,7 +10,7 @@
                       <a class="mb-0" routerLink="{{ product.id }}">{{ product.name | titlecase }}</a> <span class="text font-weight-bold">{{ product.price | currency: "EUR"}}</span>
                   </div>
                   <div class="mt-3">
-                    <button *ngIf="product.qty > 0; else btnNotVisible" [disabled]="productListService.btnIsDisabled" class="btn btn-bd-primary" (click)="cartService.addToCart(product)" (click)="addedToCartToastService.showToast()" id="liveToastBtn" style="position: relative">Add to cart</button>
+                    <button *ngIf="product.qty > 0; else btnNotVisible" [disabled]="productListService.getBtnIsDisabled()" class="btn btn-bd-primary" (click)="cartService.addToCart(product)" (click)="addedToCartToastService.showToast()" id="liveToastBtn" style="position: relative">Add to cart</button>
                     <ng-template #btnNotVisible>
                       <p>Non disponibile</p>
                     </ng-template>
@@ -21,4 +21,4 @@
   </div>
 </div>
 
-<app-added-to-cart-toast *ngIf="addedToCartToastService.show"></app-added-to-cart-toast>
+<app-added-to-cart-toast *ngIf="addedToCartToastService.hasShow()"></app-added-to-cart-toast>
