@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { min } from 'rxjs';
 import { ProductListComponent } from 'src/app/product-list/product-list.component';
 import { CartService } from './cart.service';
 import { CustomerService } from './customer.service';
@@ -44,7 +45,7 @@ export class OrdersService implements OnInit {
   }
 
   getOrders() {
-    return this.orders;
+    return this.orders.sort();
   }
 
   setOrders(orders: any) {

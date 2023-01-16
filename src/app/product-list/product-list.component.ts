@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductListService } from 'src/app/services/product-list.service';
 import { AddedToCartToastService } from '../services/added-to-cart-toast.service';
@@ -26,11 +25,6 @@ export class ProductListComponent implements OnInit {
    }[] = [];
 
   ngOnInit(): void {
-    this.products = this.productListService.getProducts();
-
-    setInterval(() => {
-      this.products = this.productListService.getProducts();
-    }, 32000);
   }
 
 }

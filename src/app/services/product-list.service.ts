@@ -7,8 +7,6 @@ import { EventEmitter, Injectable, OnInit } from '@angular/core';
 export class ProductListService implements OnInit {
 
   constructor(public httpClient: HttpClient) {
-    this.loadProducts();
-
     setInterval(() => {
       this.loadProducts();
     }, 30000);
@@ -25,6 +23,7 @@ export class ProductListService implements OnInit {
   }[] = [];
 
   ngOnInit(): void {
+    this.loadProducts();
   }
 
   disableButton(id: number) {
@@ -48,6 +47,7 @@ export class ProductListService implements OnInit {
         this.products.push(value);
       })
     })
+
   }
 
   getProducts() {

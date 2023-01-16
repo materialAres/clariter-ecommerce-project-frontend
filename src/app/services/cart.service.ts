@@ -33,9 +33,6 @@ export class CartService {
     qty: number,
     imageUrl: string
   }) {
-    console.log("HERE");
-
-
     let productForCart: {
       id: number,
       name: string,
